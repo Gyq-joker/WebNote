@@ -119,3 +119,8 @@ function identity1<T, U> (val: T, type: U): [T, U] {
   return [val, type];
 }
 identity1<string, number>('123', 123); // 等同于 identity1('123', 123)
+
+// 泛型接口
+interface GenericIdentityFn<T> {
+  (arg: T): T;
+}
