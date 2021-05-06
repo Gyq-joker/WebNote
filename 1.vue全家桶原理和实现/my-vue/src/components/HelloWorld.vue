@@ -34,7 +34,16 @@
       1. 在vue2.4+的版本中 :tipsShow.sync的语法，实际上相当于 @update:show="修改后的值" 
       2. 子组件在使用的时候，注意要把父组件的值绑定在子组件上，如 :tipsShow="tipsShow"
     -->
-    <message v-if="tipsShow" :tipsShow.sync="tipsShow">消息提示：success！</message>
+    <message v-if="tipsShow" :tipsShow.sync="tipsShow">
+      <!-- 具名插槽的使用，v-slot最终会渲染到 slot name 中对应的地方 -->
+      <template v-slot:title>
+        <strong>插槽标题</strong>
+      </template>
+
+      <template v-slot:default>
+        <span>插槽内容</span>
+      </template>
+    </message>
   </div>
 </template>
 
@@ -60,7 +69,7 @@ Vue.component('message', {
   template: `
     <div class="message-view" v-if="tipsShow">
       <!-- 具名插槽 -->
-      
+      <slot name="title"></slot>
       <!-- slot可理解为占位符，内容如何，通过标签内容去定  -->
       <slot></slot>
       <button class="close-message" @click="$emit('update:tipsShow', false)">关闭弹窗</button>

@@ -6,9 +6,23 @@
 ### 4. 页面跳转为什么只是刷新内容，而不刷新页面？
 ### 5. render函数的使用 和 Vue.component 下的 props 属性
 ### 6. this.$slots.default 代表的含义
-### 7. mixin 混入模式    
-  
-# 2. Vue 中通过 slot插槽 进行内容分发和事件处理
+### 7. mixin 混入模式
+### 8. vue 和 vue-router 为什么是强相关的？
+* Vue.util.defineReactive
+* vue.mixin({})
+
+
+
+
+
+
+
+
+
+
+
+
+# 2. Vue 通过 slot插槽 进行内容分发和事件处理
 ``` html
 <body>
   <message :show.sync="show">消息提示，success！</message>
