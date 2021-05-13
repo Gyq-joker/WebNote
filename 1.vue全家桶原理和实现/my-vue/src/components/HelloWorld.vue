@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <my></my>
-    <button @click="tipsShow = true">打开</button>
+    <button @click="testVuex">登录</button>
     <!-- 
       1. 在vue2.4+的版本中 :tipsShow.sync的语法，实际上相当于 @update:show="修改后的值" 
       2. 子组件在使用的时候，注意要把父组件的值绑定在子组件上，如 :tipsShow="tipsShow"
@@ -58,6 +58,15 @@ export default {
   data(){
     return {
       tipsShow: false,
+    }
+  },
+  methods: {
+    testVuex() {
+      // 在组件中想要使用 action ，可以通过 dispatch 去触发action
+      // 
+      this.$store.dispatch('login', 'admin').then((res)=>{
+        console.log(res)
+      })
     }
   },
   components: {

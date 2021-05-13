@@ -16,7 +16,6 @@
 import Vue from 'vue';
 Vue.component('my', {
   render(h) {
-    console.log(this.$slots)
     return h(
       'h2',
       {
